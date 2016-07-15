@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>How IT Pays: A visualization of careers and opportunities</title>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="css/dc.css">
+  <link rel="stylesheet" href="css/leaflet.tooltip.css"/>
+  <link rel="stylesheet" href="css/MarkerCluster.css"/>
+  <link rel="stylesheet" href="css/MarkerCluster.Default.css"/>
+
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/map.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+  <body>
+    <nav class="teal lighten-1" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">How IT Pays</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="section">
+
+        <div class="row">
+          <div class="col s12 center">
+            <h3 class="header center orange-text">Global Job Market</h3>
+            <p class="left-align light">Either if you already work in the Information Technology sector or are simply considering it an option, you may want to analyze the possibilities offered within the job market worldwide. IT comprises different fields of work and making the right career decision may not be a trivial task. Ever wondered if you are being paid within your country's average? Or where are the best salaries? Would it be worth moving abroad to pursue a better job opportunity? Select one of the four different careers below to see how salaries vary from country to country.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form action="#">
+      <div class="row center">
+        <input name="group1" type="radio" id="test1" onclick="updateSoftwareEngineer()" />
+        <label for="test1">Software Engineer</label>
+
+        <input name="group1" type="radio" id="test2" onclick="updateWebDeveloper()" />
+        <label for="test2">Web Developer</label>
+
+        <input name="group1" type="radio" id="test3" onclick="updateDataAnalyst()" />
+        <label for="test3">Data Analyst</label>
+   
+        <input name="group1" type="radio" id="test4" onclick="updateNetworkEngineer()" />
+        <label for="test4">Network Engineer</label>
+      </div>
+    </form>
+
+    <div id="map"></div>
+
+    <div class="container">
+      <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s3">
+              <h5 class="center grey-text" id="t1">Software Engineer</h5>
+
+              <p class="grey-text" align="justify" id="p1">To work as a software engineer, a person must normally have a bachelor’s degree in computer engineering, computer science, or a related field. Many companies will prefer candidates for this job who can show practical experience in programming and coding.</p>
+          </div>
+
+          <div class="col s3">
+              <h5 class="center grey-text" id="t2">Web Developer</h5>
+
+              <p class="grey-text" align="justify" id="p2">Web developers build the backbone of websites. Employers often require candidates to have a bachelor’s degree in computer science, programming, informational technology, or another relevant fields.</p>
+          </div>
+
+          <div class="col s3">
+              <h5 class="center grey-text" id="t3">Data Analyst</h5>
+
+              <p class="grey-text" align="justify" id="p3">A data analyst uses data to acquire information about specific topics. This usually starts with the survey process, in which data analysts find survey participants and gather the needed information. The data is then interpreted and presented in forms such as charts or reports.</p>
+          </div>
+
+          <div class="col s3">
+              <h5 class="center grey-text" id="t4">Network Engineer</h5>
+
+              <p class="grey-text" align="justify" id="p4">Network engineers must be knowledgeable of a variety of networking technologies, such as routing, cryptographic tunneling, firewalls, and others. A bachelor's degree in information technology, computer science, or a related field is generally required for this position.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="countries-worth-it-chart" class="col s12 center">
+        <h4 class="header center orange-text">Is that job offer worth it?
+          <h5 class="header center grey-text">Difference between salary and cost of living by country</h5>
+        </h4>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="section">
+
+        <div class="row">
+          <div class="col s12 center">
+          	<br><br>
+            <h3 class="header center orange-text">Startup Market</h3>
+            <p class="left-align light">Startups are small companies that work with a scalable business model, and they represent a growing phenomenon in the IT industry. If you are looking to work at a startup or thinking about starting your own, it would be useful to know a few things first. For example, where are they concentrated at? Which are the main job positions being recruited? And what about the salaries being offered? Check out the interactive map below to discover more about IT startups around the world.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="mapid"></div>
+
+		<h4 class="header center orange-text">Junior vs. Senior</h4>
+		<h5 class="header center grey-text">(in thousands of US$ per year)</h5>
+		<div class="row center">
+			<div class="col s12 m6">
+				<div id="junior-compensation-chart">
+					<h5 class="header center orange-text">Junior salaries
+						<span>
+							<a class="reset" href="javascript:juniorCompensationChart.filterAll();dc.redrawAll();" style="display: none;">(reset)</a>
+						</span>
+					</h5>
+				</div>
+			</div>
+
+			<div class="col s12 m6">
+				<div id="senior-compensation-chart">
+					<h5 class="header center orange-text">Senior salaries
+						<span>
+							<a class="reset" href="javascript:seniorCompensationChart.filterAll();dc.redrawAll();" style="display: none;">(reset)</a>
+						</span>
+					</h5>
+				</div>
+			</div>
+		</div>
+
+  	<div class="row">
+  		<div id="distribution-composite-chart" class="col s12 center">
+  			<h4 class="header center orange-text">Salary distribution
+  				<span>
+  					<a class="reset" href="javascript:distributionCompositeChart.filterAll();dc.redrawAll();" style="display: none;">(reset)</a>
+  				</span>
+  			</h4>
+  		</div>
+  	</div>
+
+    <div class="row">
+      <div id="cost-life-bubble-chart" class="col s12 center">
+          <h4 class="header center orange-text">Cities salaries, cost of living and number of jobs comparison</h4>
+      </div>
+    </div>
+
+  	<div class="row">
+  		<div class="col s12 center">
+  			<h4 class="header center orange-text">Most popular keywords
+  				<div id='tagcloud-chart'></div>
+  			</h4>
+  		</div>
+  	</div>
+
+    <footer class="page-footer orange">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">About us</h5>
+            <p class="grey-text text-lighten-4">We are a group of undergraduate students from Universidade Federal do Ceará and this is our final project for the Data Visualization module.</p>
+
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Data sources</h5>
+            <ul>
+              <li><a class="white-text" href="http://www.payscale.com/">PayScale</a></li>
+              <li><a class="white-text" href="https://angel.co/">AngelList</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Tools</h5>
+            <ul>
+              <li><a class="white-text" href="https://d3js.org/">D3.js</a></li>
+              <li><a class="white-text" href="http://leafletjs.com/">Leaflet</a></li>
+              <li><a class="white-text" href="http://materializecss.com/">Materialize</a></li>
+              <li><a class="white-text" href="https://nodejs.org/">Node.js</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div>
+      </div>
+    </footer>
+
+    <!--  Scripts-->
+
+    <script src="js/leaflet-src.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet.tooltip.js"></script>
+    <script src="js/crossfilter.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/dc.js" charset="utf-8"></script>
+    <script src="js/leaflet.markercluster-src.min.js"></script>
+    <script src="d3.layout.cloud.js"></script>
+    <script src="js/bubblechart.js"></script>
+    <script src="js/compensation.js"></script>
+    <script type="text/javascript" src="js/globalMapData.js"></script>
+    <script src="js/globalMapFun.js"></script>
+    <script src="js/worthIt.js"></script>
+    <script type="text/javascript" src="js/globalMap.js"></script>
+    <script src="js/startupMap.js"></script>
+    <script src="js/tags-cloud.js"></script>
+
+  </body>
+</html>
