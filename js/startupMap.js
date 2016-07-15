@@ -164,6 +164,5 @@ function updateMarkers() {
 
 clusterGroup.on('clustermouseover', function (a) {
     // a.layer is actually a cluster
-    a.layer.title("fdfdsfsdfd");
     console.log('cluster ' + a.layer.getAllChildMarkers().length);
 });
