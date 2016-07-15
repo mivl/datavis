@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+        <title>Trabalho 2</title> 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script> 
+    </head> 
+    <body>
+		<script>
+			$(function () {
+			    $('#container').highcharts({
+			        chart: {
+			            type: 'area'
+			        },
+			        title: {
+			            text: 'Orçamento x Lucro'
+			        },
+			        xAxis: {
+			        	categories: ['Transformers: Dark of the Moon', 'Toy Story 3', 'Harry Potter and the Deathly Hallows Part 1', 'Alice in Wonderland', 'The Dark Knight', 'Pirates of the Caribbean: On Stranger Tides', 'Harry Potter and the Order of the Phoenix', 'Harry Potter and the Half-Blood Prince', 'Pirates of the Caribbean: At World\'s End', 'Spider-Man 3'],
+			            allowDecimals: true,
+			            labels: {
+			                formatter: function () {
+			                    return this.value; // clean, unformatted number for year
+			                }
+			            }
+			        },
+			        yAxis: {
+			            title: {
+			                text: 'Profit / Budget'
+			            }
+			        },
+			        tooltip: {
+			            pointFormat: '<b>{point.y} M</b>'
+			        },
+			        series: [{
+			            name: 'Profit',
+			            data: [928.2, 863.2, 830.0, 824.4, 814.5, 793.9, 789.9, 684.0, 661.0, 632.9]
+			        }, {
+			        	name: 'Budget',
+			            data: [195.0, 200.0, 125.0, 200.0, 185.0, 250.0, 150.0, 250.0, 300.0, 258.0]
+			        }]
+			    });
+			});
+		</script>
+    	<div id="container" style="width:60%; height:400px; margin: 0 auto;"></div>
+
+    	<div class="container">
+			<h4>Observações</h4>
+	    	<p align="justify">O objetivo dessa visualização é mostrar a relação entre os valores de orçamento e lucro dos 10 filmes de maior bilheteria. Não houve qualquer limitação na replicação desse gráfico, devido a sua relativa simplicidade, e ele se mantém bastante similar ao original. A única diferença é o uso de um eixo y simples aqui, enquanto o original usava um eixo y duplo; mas como os eixos são sincronizados, isso não faz diferença.</p>
+	    </div>
+    </body> 
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+        <title>Gráfico de Barras</title> 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>   
+    </head> 
+    <body>
+		<script> 
+			 $(function () {  
+				   $('#container').highcharts({	    
+					chart: { 
+						type: 'column' 
+					  }, 
+					  title: { 
+							   text: 'Movies Box Office' 
+					}, 
+					  xAxis: { 
+							   categories: ['Worldwide', 'Domestic', 'Brazil', 'United Kingdom'] 
+					}, 
+					  yAxis: { 
+							   title: { 
+					text: 'Total Gross ($)' 
+					} 
+					}, 
+					  series: [{ 
+					name: 'Slumdog Millionaire', 
+					data: [377910544, 141319928, 6215957, 52213042] 
+					}, { 
+					name: 'Toy Story 3', 
+					data: [1063171911, 415004880, 23613926, 116625632] 
+					}, { 
+					name: 'Harry Potter and the Prisoner of Azkaban', 
+					data: [796688549, 249541069, 6900000, 84787188]
+					}, { 
+					name: 'The Lord of the Rings: The Fellowship of the Ring', 
+					data: [871530324, 315544750, 10381603, 90228837] 
+					}, { 
+					name: 'Inception', 
+					data: [825532764, 292576195, 10315556, 56566947]
+					}]
+				}); 
+		 	});
+		</script>
+    	<div id="container" style="width:60%; height:400px; margin: 0 auto;"></div>
+    </body> 
+</html>

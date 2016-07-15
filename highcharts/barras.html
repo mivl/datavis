@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+        <title>Gráfico de Barras</title> 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>    
+    </head> 
+    <body>
+		<script> 
+			 $(function () {  
+				   $('#container').highcharts({	    
+					chart: { 
+						type: 'bar' 
+					  }, 
+					  title: { 
+							   text: 'Lanchonete do Diniz: Consumo da Semana' 
+					}, 
+					  xAxis: { 
+							   categories: ['Tapioca', 'Café', 'Suco', 'KK'] 
+					}, 
+					  yAxis: { 
+							   title: { 
+					text: 'Itens consumidos' 
+					} 
+					}, 
+					  series: [{ 
+					name: 'Gil', 
+					data: [0, 0, 3, 4] 
+					}, { 
+					name: 'Sá', 
+					data: [4, 4, 2, 2] 
+					}, { 
+					name: 'Zé', 
+					data: [5, 7, 0, 2] 
+					}]
+				}); 
+		 	});
+		</script>
+    	<div id="container" style="width:60%; height:400px; margin: 0 auto;"></div>
+    </body> 
+</html>

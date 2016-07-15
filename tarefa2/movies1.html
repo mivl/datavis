@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+        <title>Trabalho 2</title> 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript"> 
+			 $(function () {  
+				   $('#container').highcharts({	    
+					chart: { 
+						type: 'column' 
+					  }, 
+					  title: { 
+							   text: 'Oscars por Estúdio' 
+					}, 
+					  xAxis: { 
+							   categories: ['Independent', 'Paramount', 'Disney', 'Universal', 'Weinstein Company', 'Fox', 'Warner Bros.', 'DreamWorks Pictures', 'Sony'] 
+					}, 
+					  yAxis: { 
+							   title: { 
+								text: 'Nbr of Oscars' 
+							} 
+					},
+					plotOptions: {
+					            column: {
+					                stacking: 'normal'
+					        }
+					    },
+					  series: [{ 
+					name: 'Adventure', 
+					data: [0, 0, 0, 1, 0, 0, 0, 0, 0] 
+					}, { 
+					name: 'Animation', 
+					data: [0, 0, 3, 0, 0, 0, 0, 0, 0] 
+					}, { 
+					name: 'Biography', 
+					data: [4, 0, 0, 2, 0, 0, 1, 0, 0] 
+					}, { 
+					name: 'Comedy', 
+					data: [1, 0, 0, 0, 0, 1, 0, 0, 0] 
+					}, { 
+					name: 'Crime', 
+					data: [3, 0, 0, 0, 0, 0, 0, 0, 0] 
+					}, { 
+					name: 'Drama', 
+					data: [3, 7, 0, 0, 3, 1, 0, 1, 0] 
+					}, { 
+					name: 'Romance', 
+					data: [0, 0, 0, 0, 0, 0, 0, 0, 1] 
+					}, { 
+					name: 'Thriller', 
+					data: [1, 0, 0, 0, 0, 0, 1, 0, 0] 
+					}]
+				}); 
+		 	});
+		</script>
+
+    	<div id="container" style="width:60%; height:400px; margin: 0 auto;"></div>
+
+    	<div class="container">
+	    	<h4>Observações</h4>
+	    	<p align="justify">O objetivo dessa visualização é mostrar o número de Oscars conquistados por estúdio, subdividindo-os de acordo com o gênero do filme premiado. A limitação encontrada na replicação desse gráfico em relação ao original foi a adição dos rótulos com os anos referentes ao recebimento das premiações. O Highcharts permite que se use "dataLabels" nas barras para cada série, mas só é possível mostrar o valor associado à série (no caso, o número de Oscars). Dessa forma, não foi possível adicionar a informação extra do ano.</p>
+    	</div>
+    </body> 
+</html>
