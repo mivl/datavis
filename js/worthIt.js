@@ -8,9 +8,9 @@ d3.csv("countries-cost-living-rent.csv", function(data) {
        d.rentPerMonth = +d.rentPerMonth;
     });
 
-    var facts = crossfilter(data);
+    var facts_ = crossfilter(data);
 
-    var countryDim = facts.dimension(function(d){
+    var countryDim = facts_.dimension(function(d){
        return d.country;
     });
 
